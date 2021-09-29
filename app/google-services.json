@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "849673531518",
+    "project_id": "loginapp-8aa9a",
+    "storage_bucket": "loginapp-8aa9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849673531518:android:44b775db8c8f9c6ac1a82f",
+        "android_client_info": {
+          "package_name": "com.khoirullatif.loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849673531518-l3ttbaip47e6qpqnbd8lsdnqt2sh6bc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF_hOSVgrXQMlNp8rjXmSqmKd-qMEzbnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849673531518-l3ttbaip47e6qpqnbd8lsdnqt2sh6bc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
