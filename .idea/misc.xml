@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio/All Learning Kotlin/LoginApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Android Studio/All Learning Kotlin/LoginApp/app/src/main/res/layout/activity_main.xml" value="0.20052083333333334" />
         <entry key="..\:/Android Studio/All Learning Kotlin/LoginApp/app/src/main/res/layout/activity_on_boarding.xml" value="0.1" />
         <entry key="..\:/Android Studio/All Learning Kotlin/LoginApp/app/src/main/res/layout/activity_otp.xml" value="0.22" />
+        <entry key="..\:/Android Studio/All Learning Kotlin/LoginApp/app/src/main/res/layout/activity_sign_up_phone_number.xml" value="0.22" />
         <entry key="..\:/Android Studio/All Learning Kotlin/LoginApp/app/src/main/res/layout/activity_sign_up_phone_number2.xml" value="0.1" />
+        <entry key="..\:/Android Studio/All Learning Kotlin/LoginApp/app/src/main/res/layout/activity_sign_up_with_number_result.xml" value="0.20052083333333334" />
       </map>
     </option>
   </component>

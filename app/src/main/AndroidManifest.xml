@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginApp">
         <activity
+            android:name=".ui.signupphonenumber.SignUpWithNumberResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.otp.OtpActivity"
             android:exported="false" />
         <activity android:name=".ui.signupphonenumber.SignUpPhoneNumberActivity" />

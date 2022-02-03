@@ -16,6 +16,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.khoirullatif.loginapp.R
 import com.khoirullatif.loginapp.databinding.ActivityLoginBinding
+import com.khoirullatif.loginapp.ui.MainActivity
 import com.khoirullatif.loginapp.ui.signupphonenumber.SignUpPhoneNumberActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -43,6 +44,13 @@ class LoginActivity : AppCompatActivity() {
 
         mGoogleSingInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
+        val user = if (auth.currentUser != null) {
+            "Login as: " + auth.currentUser?.displayName.toString()
+        } else {
+            "Your didn't login yet"
+        }
+        binding.tvStatus.text = user
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
@@ -58,6 +66,8 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogout.setOnClickListener {
             Firebase.auth.signOut()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnPhone.setOnClickListener {
@@ -122,7 +132,7 @@ class LoginActivity : AppCompatActivity() {
         //current user bisa langsung detect all method when login (ex. google, facebook, nohp)
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            Toast.makeText(this, "You have already sign in with email", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "You have already sign in", Toast.LENGTH_SHORT).show()
             binding.btnLogin.visibility = View.GONE
         } else {
 //            binding.btnLogout.visibility = View.GONE
