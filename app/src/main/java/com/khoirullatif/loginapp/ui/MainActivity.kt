@@ -1,4 +1,4 @@
-package com.khoirullatif.loginapp
+package com.khoirullatif.loginapp.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.khoirullatif.loginapp.R
 import com.khoirullatif.loginapp.databinding.ActivityMainBinding
+import com.khoirullatif.loginapp.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "849673531518",
+    "firebase_url": "https://loginapp-8aa9a-default-rtdb.firebaseio.com",
     "project_id": "loginapp-8aa9a",
     "storage_bucket": "loginapp-8aa9a.appspot.com"
   },

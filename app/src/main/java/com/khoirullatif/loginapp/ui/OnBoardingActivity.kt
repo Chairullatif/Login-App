@@ -1,4 +1,4 @@
-package com.khoirullatif.loginapp
+package com.khoirullatif.loginapp.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

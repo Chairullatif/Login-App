@@ -7,4 +7,12 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat Password</string>
+    <string name="status">status</string>
+    <string name="login_with_google">Already login with google</string>
+    <string name="login_with_email">Already login with email</string>
+    <string name="web_client_id">849673531518-l3ttbaip47e6qpqnbd8lsdnqt2sh6bc1.apps.googleusercontent.com</string>
+    <string name="full_name">Full name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="verify_phone">Verify Phone</string>
+    <string name="verify">Verify</string>
 </resources>
