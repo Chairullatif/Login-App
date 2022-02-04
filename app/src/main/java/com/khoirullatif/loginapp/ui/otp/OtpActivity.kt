@@ -3,6 +3,7 @@ package com.khoirullatif.loginapp.ui.otp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -55,11 +56,21 @@ class OtpActivity : AppCompatActivity() {
 
         PhoneAuthProvider.verifyPhoneNumber(options)
 
+        //2. Send code manually
         binding.btnVerify.setOnClickListener {
             val code = binding.edtCode.text.toString()
             val credential = PhoneAuthProvider.getCredential(storedVerificationCode, code)
             Log.d(TAG, "onCreate: code = $storedVerificationCode")
             signInWithPhoneAuthCredential(credential)
+        }
+
+        //Countdown
+        startCountdownTimer()
+
+        //3. Resend code
+        binding.tvWantToResend.setOnClickListener {
+            Toast.makeText(this, "Resend verification code", Toast.LENGTH_SHORT).show()
+            resendVerificationCode(resendToken)
         }
 
     }
@@ -73,6 +84,7 @@ class OtpActivity : AppCompatActivity() {
                     if (codeSms != null) {
                         binding.progressBar.visibility = View.VISIBLE
                     }
+                    //Start Sign Up
                     signInWithPhoneAuthCredential(credential)
                 }
 
@@ -102,6 +114,18 @@ class OtpActivity : AppCompatActivity() {
         return callback
     }
 
+    private fun resendVerificationCode(token: PhoneAuthProvider.ForceResendingToken) {
+        val options = PhoneAuthOptions.newBuilder(auth)
+            .setPhoneNumber(phoneNumber)
+            .setTimeout(60L, TimeUnit.SECONDS)
+            .setActivity(this)
+            .setCallbacks(callbacks())
+            .setForceResendingToken(token)
+            .build()
+
+        PhoneAuthProvider.verifyPhoneNumber(options)
+    }
+
     private fun signInWithPhoneAuthCredential(phoneCredential: PhoneAuthCredential) {
         auth.signInWithCredential(phoneCredential)
             .addOnCompleteListener(this) { task ->
@@ -118,5 +142,17 @@ class OtpActivity : AppCompatActivity() {
             }
     }
 
+    private fun startCountdownTimer() {
+        object : CountDownTimer(60000, 1000) {
+            override fun onTick(milisUntilFinished: Long) {
+                val countdown = milisUntilFinished / 1000
+                binding.tvCountdown.text = countdown.toString()
+                binding.tvWantToResend.isEnabled = false
+            }
 
+            override fun onFinish() {
+                binding.tvWantToResend.isEnabled = true
+            }
+        }.start()
+    }
 }
