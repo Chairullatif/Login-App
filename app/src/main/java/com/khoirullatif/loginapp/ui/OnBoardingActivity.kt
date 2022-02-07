@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.khoirullatif.loginapp.databinding.ActivityOnBoardingBinding
+import com.khoirullatif.loginapp.ui.login.LoginActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 
@@ -20,23 +21,23 @@ class OnBoardingActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         if (auth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
         }
 
         binding.btnNext.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }
 
     override fun onStart() {
         super.onStart()
-        if (auth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-            return
-        }
+//        if (auth.currentUser != null) {
+//            startActivity(Intent(this, LoginActivity::class.java))
+//            finish()
+//            return
+//        }
     }
 }

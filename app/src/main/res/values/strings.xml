@@ -15,4 +15,7 @@
     <string name="phone_number">Phone number</string>
     <string name="verify_phone">Verify Phone</string>
     <string name="verify">Verify</string>
+    <string name="facebook_app_id">462036105460802</string> <string name="fb_login_protocol_scheme">fb462036105460802</string>
+    <string name="login_email">Login with email</string>
+    <string name="register_with_email">Register with email</string>
 </resources>

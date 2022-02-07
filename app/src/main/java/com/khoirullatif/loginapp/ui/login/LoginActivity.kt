@@ -16,7 +16,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.khoirullatif.loginapp.R
 import com.khoirullatif.loginapp.databinding.ActivityLoginBinding
-import com.khoirullatif.loginapp.ui.MainActivity
+import com.khoirullatif.loginapp.ui.OnBoardingActivity
+import com.khoirullatif.loginapp.ui.fb.FacebookLoginActivity
 import com.khoirullatif.loginapp.ui.signupphonenumber.SignUpPhoneNumberActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -66,12 +67,17 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogout.setOnClickListener {
             Firebase.auth.signOut()
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, OnBoardingActivity::class.java)
             startActivity(intent)
         }
 
         binding.btnPhone.setOnClickListener {
             val intent = Intent(this, SignUpPhoneNumberActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnFacebook.setOnClickListener {
+            val intent = Intent(this, FacebookLoginActivity::class.java)
             startActivity(intent)
         }
     }
@@ -134,6 +140,7 @@ class LoginActivity : AppCompatActivity() {
         if (currentUser != null) {
             Toast.makeText(this, "You have already sign in", Toast.LENGTH_SHORT).show()
             binding.btnLogin.visibility = View.GONE
+            binding.btnRegister.visibility = View.GONE
         } else {
 //            binding.btnLogout.visibility = View.GONE
 //            binding.btnLogin.visibility = View.VISIBLE
