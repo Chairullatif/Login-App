@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "849673531518-iqpap8ubkrhc0t4ats03lhh0bfdof2pc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.khoirullatif.loginapp",
+            "certificate_hash": "7f75c91db0c52dd70594735272cca61f1a873de1"
+          }
+        },
+        {
           "client_id": "849673531518-l3ttbaip47e6qpqnbd8lsdnqt2sh6bc1.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -15,7 +15,16 @@
     <string name="phone_number">Phone number</string>
     <string name="verify_phone">Verify Phone</string>
     <string name="verify">Verify</string>
-    <string name="facebook_app_id">462036105460802</string> <string name="fb_login_protocol_scheme">fb462036105460802</string>
+    <string name="facebook_app_id">462036105460802</string>
+    <string name="fb_login_protocol_scheme">fb462036105460802</string>
     <string name="login_email">Login with email</string>
     <string name="register_with_email">Register with email</string>
+    <string name="firestore">Firestore</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="age">Age</string>
+    <string name="save">Save</string>
+    <string name="read_firebase_with_calling_method">Read Data with Calling Method</string>
+    <string name="call_refresh_method">call refresh method</string>
+    <string name="read_data_realtime">Read data realtime</string>
 </resources>

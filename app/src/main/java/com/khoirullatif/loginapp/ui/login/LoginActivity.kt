@@ -18,6 +18,7 @@ import com.khoirullatif.loginapp.R
 import com.khoirullatif.loginapp.databinding.ActivityLoginBinding
 import com.khoirullatif.loginapp.ui.OnBoardingActivity
 import com.khoirullatif.loginapp.ui.fb.FacebookLoginActivity
+import com.khoirullatif.loginapp.ui.firestrore.FirestoreActivity
 import com.khoirullatif.loginapp.ui.signupphonenumber.SignUpPhoneNumberActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -80,6 +81,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, FacebookLoginActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnFirestore.setOnClickListener {
+            val intent = Intent(this, FirestoreActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun signIn(email: String, password: String) {
@@ -127,6 +133,8 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, user.displayName!! + user.phoneNumber + user.email, Toast.LENGTH_SHORT).show()
                     binding.tvStatus.text = "Login sebagai: " + user.displayName
                     binding.btnLogin.visibility = View.GONE
+                    binding.btnFirestore.visibility = View.VISIBLE
+                    binding.btnRegister.visibility = View.GONE
                 } else {
                     binding.tvStatus.text = "Failed login to google"
                 }
@@ -137,11 +145,13 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         //current user bisa langsung detect all method when login (ex. google, facebook, nohp)
         val currentUser = auth.currentUser
+
         if (currentUser != null) {
             Toast.makeText(this, "You have already sign in", Toast.LENGTH_SHORT).show()
             binding.btnLogin.visibility = View.GONE
             binding.btnRegister.visibility = View.GONE
         } else {
+            binding.btnFirestore.visibility = View.GONE
 //            binding.btnLogout.visibility = View.GONE
 //            binding.btnLogin.visibility = View.VISIBLE
         }
