@@ -39,16 +39,17 @@ class FirestoreActivity : AppCompatActivity() {
         db = Firebase.firestore
         val user = auth.currentUser
 
+        //start listening data realtime
         getDataRealtime(user!!.uid)
 
         binding.btnSave.setOnClickListener {
-            val id = user?.uid
+            val id = user.uid
             val firstName = binding.edtFirstName.text.toString()
             val lastName = binding.edtLastName.text.toString()
             val age = binding.edtAge.text.toString().toInt()
 
             val userData = User(
-                id!!,
+                id,
                 firstName,
                 lastName,
                 age
@@ -59,7 +60,7 @@ class FirestoreActivity : AppCompatActivity() {
         }
 
         binding.btnRefreshMethod.setOnClickListener {
-            getData(user!!.uid)
+            getData(user.uid)
         }
     }
 
@@ -85,16 +86,28 @@ class FirestoreActivity : AppCompatActivity() {
         }
     }
 
+    //listen data from firebase realtime
     private fun getDataRealtime(userId: String) {
         db.collection("users").document(userId)
             .addSnapshotListener { snapshot, error ->
-                if (error != null) {
-                    Log.d(TAG, "getDataRealtime: Listen Failed", error)
+//                if (error != null) {
+//                    Log.d(TAG, "getDataRealtime: Listen Failed", error)
+//                    return@addSnapshotListener
+//                }
+//                if (snapshot != null && snapshot.exists()) {
+//                        usersData = snapshot.toObject<User>()!!
+//                        initViewRealtime(usersData)
+//                }
+
+                //with .let() function, this called scope function
+                error?.let {
+                    Log.d(TAG, "getDataRealtime: Listen failed", it)
                     return@addSnapshotListener
                 }
-                if (snapshot != null && snapshot.exists()) {
-                        usersData = snapshot.toObject<User>()!!
-                        initViewRealtime(usersData)
+
+                snapshot?.let {
+                    usersData = it.toObject<User>()!!
+                    initViewRealtime(usersData)
                 }
             }
     }
